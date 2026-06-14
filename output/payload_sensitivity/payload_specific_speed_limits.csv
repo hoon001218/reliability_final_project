@@ -1,0 +1,181 @@
+metric,tolerance,required_reliability,payload_model,maximum_speed_scale,reliability_at_limit,status
+position,0.1,0.9,pooled,,0.6622174442331437,not_feasible_at_0.5
+position,0.1,0.9,1.6 lb,,0.6827734722111611,not_feasible_at_0.5
+position,0.1,0.9,4.5 lb,,0.6441845938186154,not_feasible_at_0.5
+position,0.2,0.9,pooled,0.5044,0.9000159775685439,feasible
+position,0.2,0.9,1.6 lb,0.5414,0.9000122350796499,feasible
+position,0.2,0.9,4.5 lb,,0.8942719179417136,not_feasible_at_0.5
+position,0.30000000000000004,0.9,pooled,0.9733,0.9000136960626457,feasible
+position,0.30000000000000004,0.9,1.6 lb,0.9883,0.9000032039605403,feasible
+position,0.30000000000000004,0.9,4.5 lb,0.9588000000000001,0.9000090612557541,feasible
+position,0.4,0.9,pooled,1.0,0.9413358260180271,feasible
+position,0.4,0.9,1.6 lb,1.0,0.9435913519540104,feasible
+position,0.4,0.9,4.5 lb,1.0,0.9391983405852409,feasible
+position,0.5,0.9,pooled,1.0,0.9644271434731289,feasible
+position,0.5,0.9,1.6 lb,1.0,0.9663526240244915,feasible
+position,0.5,0.9,4.5 lb,1.0,0.9625627623470029,feasible
+position,0.6000000000000001,0.9,pooled,1.0,0.9772164816079696,feasible
+position,0.6000000000000001,0.9,1.6 lb,1.0,0.9787758927237211,feasible
+position,0.6000000000000001,0.9,4.5 lb,1.0,0.9756799489745014,feasible
+position,0.7000000000000001,0.9,pooled,1.0,0.9847721719666291,feasible
+position,0.7000000000000001,0.9,1.6 lb,1.0,0.9860143262128231,feasible
+position,0.7000000000000001,0.9,4.5 lb,1.0,0.9835293805045057,feasible
+position,0.8,0.9,pooled,1.0,0.9894672929494654,feasible
+position,0.8,0.9,1.6 lb,1.0,0.9904539166672379,feasible
+position,0.8,0.9,4.5 lb,1.0,0.9884664143254095,feasible
+position,0.9,0.9,pooled,1.0,0.9925061769474872,feasible
+position,0.9,0.9,1.6 lb,1.0,0.9932921943190145,feasible
+position,0.9,0.9,4.5 lb,1.0,0.99169858535277,feasible
+position,1.0,0.9,pooled,1.0,0.9945403315469853,feasible
+position,1.0,0.9,1.6 lb,1.0,0.9951700351831325,feasible
+position,1.0,0.9,4.5 lb,1.0,0.9938856302599071,feasible
+position,0.1,0.95,pooled,,0.6622174442331437,not_feasible_at_0.5
+position,0.1,0.95,1.6 lb,,0.6827734722111611,not_feasible_at_0.5
+position,0.1,0.95,4.5 lb,,0.6441845938186154,not_feasible_at_0.5
+position,0.2,0.95,pooled,,0.9009146763427267,not_feasible_at_0.5
+position,0.2,0.95,1.6 lb,,0.9088630137446111,not_feasible_at_0.5
+position,0.2,0.95,4.5 lb,,0.8942719179417136,not_feasible_at_0.5
+position,0.30000000000000004,0.95,pooled,0.6179,0.9500093710545757,feasible
+position,0.30000000000000004,0.95,1.6 lb,0.6443,0.9500126211425102,feasible
+position,0.30000000000000004,0.95,4.5 lb,0.5958,0.9500121955834547,feasible
+position,0.4,0.95,pooled,0.919,0.9500058355878487,feasible
+position,0.4,0.95,1.6 lb,0.9404,0.950004032701082,feasible
+position,0.4,0.95,4.5 lb,0.8992,0.9500052866899279,feasible
+position,0.5,0.95,pooled,1.0,0.9644271434731289,feasible
+position,0.5,0.95,1.6 lb,1.0,0.9663526240244915,feasible
+position,0.5,0.95,4.5 lb,1.0,0.9625627623470029,feasible
+position,0.6000000000000001,0.95,pooled,1.0,0.9772164816079696,feasible
+position,0.6000000000000001,0.95,1.6 lb,1.0,0.9787758927237211,feasible
+position,0.6000000000000001,0.95,4.5 lb,1.0,0.9756799489745014,feasible
+position,0.7000000000000001,0.95,pooled,1.0,0.9847721719666291,feasible
+position,0.7000000000000001,0.95,1.6 lb,1.0,0.9860143262128231,feasible
+position,0.7000000000000001,0.95,4.5 lb,1.0,0.9835293805045057,feasible
+position,0.8,0.95,pooled,1.0,0.9894672929494654,feasible
+position,0.8,0.95,1.6 lb,1.0,0.9904539166672379,feasible
+position,0.8,0.95,4.5 lb,1.0,0.9884664143254095,feasible
+position,0.9,0.95,pooled,1.0,0.9925061769474872,feasible
+position,0.9,0.95,1.6 lb,1.0,0.9932921943190145,feasible
+position,0.9,0.95,4.5 lb,1.0,0.99169858535277,feasible
+position,1.0,0.95,pooled,1.0,0.9945403315469853,feasible
+position,1.0,0.95,1.6 lb,1.0,0.9951700351831325,feasible
+position,1.0,0.95,4.5 lb,1.0,0.9938856302599071,feasible
+position,0.1,0.99,pooled,,0.6622174442331437,not_feasible_at_0.5
+position,0.1,0.99,1.6 lb,,0.6827734722111611,not_feasible_at_0.5
+position,0.1,0.99,4.5 lb,,0.6441845938186154,not_feasible_at_0.5
+position,0.2,0.99,pooled,,0.9009146763427267,not_feasible_at_0.5
+position,0.2,0.99,1.6 lb,,0.9088630137446111,not_feasible_at_0.5
+position,0.2,0.99,4.5 lb,,0.8942719179417136,not_feasible_at_0.5
+position,0.30000000000000004,0.99,pooled,,0.9636476161169863,not_feasible_at_0.5
+position,0.30000000000000004,0.99,1.6 lb,,0.9668115325335771,not_feasible_at_0.5
+position,0.30000000000000004,0.99,4.5 lb,,0.9611577933478538,not_feasible_at_0.5
+position,0.4,0.99,pooled,,0.9844206232108202,not_feasible_at_0.5
+position,0.4,0.99,1.6 lb,,0.9858139878646396,not_feasible_at_0.5
+position,0.4,0.99,4.5 lb,,0.9833925511928542,not_feasible_at_0.5
+position,0.5,0.99,pooled,0.5714,0.9900031898515428,feasible
+position,0.5,0.99,1.6 lb,0.5935,0.9900009423760637,feasible
+position,0.5,0.99,4.5 lb,0.5559000000000001,0.990003862119745,feasible
+position,0.6000000000000001,0.99,pooled,0.7267,0.9900017397832185,feasible
+position,0.6000000000000001,0.99,1.6 lb,0.7498,0.9900024576272297,feasible
+position,0.6000000000000001,0.99,4.5 lb,0.7081999999999999,0.99000288176222,feasible
+position,0.7000000000000001,0.99,pooled,0.8624,0.9900032047591778,feasible
+position,0.7000000000000001,0.99,1.6 lb,0.8892,0.9900026129858781,feasible
+position,0.7000000000000001,0.99,4.5 lb,0.8394,0.9900033302360421,feasible
+position,0.8,0.99,pooled,0.9832000000000001,0.9900014367366248,feasible
+position,0.8,0.99,1.6 lb,1.0,0.9904539166672379,feasible
+position,0.8,0.99,4.5 lb,0.9548000000000001,0.990003151346536,feasible
+position,0.9,0.99,pooled,1.0,0.9925061769474872,feasible
+position,0.9,0.99,1.6 lb,1.0,0.9932921943190145,feasible
+position,0.9,0.99,4.5 lb,1.0,0.99169858535277,feasible
+position,1.0,0.99,pooled,1.0,0.9945403315469853,feasible
+position,1.0,0.99,1.6 lb,1.0,0.9951700351831325,feasible
+position,1.0,0.99,4.5 lb,1.0,0.9938856302599071,feasible
+orientation,0.01,0.9,pooled,,0.5136863211465097,not_feasible_at_0.5
+orientation,0.01,0.9,1.6 lb,,0.5727708859188879,not_feasible_at_0.5
+orientation,0.01,0.9,4.5 lb,,0.46466513272895954,not_feasible_at_0.5
+orientation,0.02,0.9,pooled,,0.839005949271906,not_feasible_at_0.5
+orientation,0.02,0.9,1.6 lb,,0.8786490085973719,not_feasible_at_0.5
+orientation,0.02,0.9,4.5 lb,,0.8050003893204261,not_feasible_at_0.5
+orientation,0.03,0.9,pooled,0.9152,0.9000030493797869,feasible
+orientation,0.03,0.9,1.6 lb,1.0,0.906106220318986,feasible
+orientation,0.03,0.9,4.5 lb,0.7424,0.9000030077954043,feasible
+orientation,0.04,0.9,pooled,1.0,0.9450799524232577,feasible
+orientation,0.04,0.9,1.6 lb,1.0,0.9555081765824942,feasible
+orientation,0.04,0.9,4.5 lb,1.0,0.9341597719437487,feasible
+orientation,0.05,0.9,pooled,1.0,0.9701020096208589,feasible
+orientation,0.05,0.9,1.6 lb,1.0,0.9771606872405236,feasible
+orientation,0.05,0.9,4.5 lb,1.0,0.9623243652479065,feasible
+orientation,0.06,0.9,pooled,1.0,0.9827353374798454,feasible
+orientation,0.06,0.9,1.6 lb,1.0,0.9875025406105502,feasible
+orientation,0.06,0.9,4.5 lb,1.0,0.9772277160696397,feasible
+orientation,0.07,0.9,pooled,1.0,0.9895448489969836,feasible
+orientation,0.07,0.9,1.6 lb,1.0,0.9927983570454844,feasible
+orientation,0.07,0.9,4.5 lb,1.0,0.9856167127980542,feasible
+orientation,0.08,0.9,pooled,1.0,0.9934157442226398,feasible
+orientation,0.08,0.9,1.6 lb,1.0,0.9956689816284652,feasible
+orientation,0.08,0.9,4.5 lb,1.0,0.9905811542113496,feasible
+orientation,0.09,0.9,pooled,1.0,0.9957151414344101,feasible
+orientation,0.09,0.9,1.6 lb,1.0,0.9973002373920319,feasible
+orientation,0.09,0.9,4.5 lb,1.0,0.9936428234119631,feasible
+orientation,0.1,0.9,pooled,1.0,0.9971325156620111,feasible
+orientation,0.1,0.9,1.6 lb,1.0,0.9982648342549356,feasible
+orientation,0.1,0.9,4.5 lb,1.0,0.9955975717006216,feasible
+orientation,0.01,0.95,pooled,,0.5136863211465097,not_feasible_at_0.5
+orientation,0.01,0.95,1.6 lb,,0.5727708859188879,not_feasible_at_0.5
+orientation,0.01,0.95,4.5 lb,,0.46466513272895954,not_feasible_at_0.5
+orientation,0.02,0.95,pooled,,0.839005949271906,not_feasible_at_0.5
+orientation,0.02,0.95,1.6 lb,,0.8786490085973719,not_feasible_at_0.5
+orientation,0.02,0.95,4.5 lb,,0.8050003893204261,not_feasible_at_0.5
+orientation,0.03,0.95,pooled,,0.9393865334747701,not_feasible_at_0.5
+orientation,0.03,0.95,1.6 lb,0.603,0.9500066593819958,feasible
+orientation,0.03,0.95,4.5 lb,,0.9213693015810003,not_feasible_at_0.5
+orientation,0.04,0.95,pooled,0.9262,0.9500043366308581,feasible
+orientation,0.04,0.95,1.6 lb,1.0,0.9555081765824942,feasible
+orientation,0.04,0.95,4.5 lb,0.7547,0.9500056234650643,feasible
+orientation,0.05,0.95,pooled,1.0,0.9701020096208589,feasible
+orientation,0.05,0.95,1.6 lb,1.0,0.9771606872405236,feasible
+orientation,0.05,0.95,4.5 lb,1.0,0.9623243652479065,feasible
+orientation,0.06,0.95,pooled,1.0,0.9827353374798454,feasible
+orientation,0.06,0.95,1.6 lb,1.0,0.9875025406105502,feasible
+orientation,0.06,0.95,4.5 lb,1.0,0.9772277160696397,feasible
+orientation,0.07,0.95,pooled,1.0,0.9895448489969836,feasible
+orientation,0.07,0.95,1.6 lb,1.0,0.9927983570454844,feasible
+orientation,0.07,0.95,4.5 lb,1.0,0.9856167127980542,feasible
+orientation,0.08,0.95,pooled,1.0,0.9934157442226398,feasible
+orientation,0.08,0.95,1.6 lb,1.0,0.9956689816284652,feasible
+orientation,0.08,0.95,4.5 lb,1.0,0.9905811542113496,feasible
+orientation,0.09,0.95,pooled,1.0,0.9957151414344101,feasible
+orientation,0.09,0.95,1.6 lb,1.0,0.9973002373920319,feasible
+orientation,0.09,0.95,4.5 lb,1.0,0.9936428234119631,feasible
+orientation,0.1,0.95,pooled,1.0,0.9971325156620111,feasible
+orientation,0.1,0.95,1.6 lb,1.0,0.9982648342549356,feasible
+orientation,0.1,0.95,4.5 lb,1.0,0.9955975717006216,feasible
+orientation,0.01,0.99,pooled,,0.5136863211465097,not_feasible_at_0.5
+orientation,0.01,0.99,1.6 lb,,0.5727708859188879,not_feasible_at_0.5
+orientation,0.01,0.99,4.5 lb,,0.46466513272895954,not_feasible_at_0.5
+orientation,0.02,0.99,pooled,,0.839005949271906,not_feasible_at_0.5
+orientation,0.02,0.99,1.6 lb,,0.8786490085973719,not_feasible_at_0.5
+orientation,0.02,0.99,4.5 lb,,0.8050003893204261,not_feasible_at_0.5
+orientation,0.03,0.99,pooled,,0.9393865334747701,not_feasible_at_0.5
+orientation,0.03,0.99,1.6 lb,,0.9594506574521189,not_feasible_at_0.5
+orientation,0.03,0.99,4.5 lb,,0.9213693015810003,not_feasible_at_0.5
+orientation,0.04,0.99,pooled,,0.974199528206562,not_feasible_at_0.5
+orientation,0.04,0.99,1.6 lb,,0.9843440610989429,not_feasible_at_0.5
+orientation,0.04,0.99,4.5 lb,,0.9646909171350653,not_feasible_at_0.5
+orientation,0.05,0.99,pooled,,0.9879092429831098,not_feasible_at_0.5
+orientation,0.05,0.99,1.6 lb,0.6372,0.9900000809572025,feasible
+orientation,0.05,0.99,4.5 lb,,0.9827086647656198,not_feasible_at_0.5
+orientation,0.06,0.99,pooled,0.7138,0.9900010339036796,feasible
+orientation,0.06,0.99,1.6 lb,0.9021,0.9900006241209265,feasible
+orientation,0.06,0.99,4.5 lb,0.5444,0.9900003048226746,feasible
+orientation,0.07,0.99,pooled,0.9770000000000001,0.9900002196541289,feasible
+orientation,0.07,0.99,1.6 lb,1.0,0.9927983570454844,feasible
+orientation,0.07,0.99,4.5 lb,0.8041,0.9900016425632686,feasible
+orientation,0.08,0.99,pooled,1.0,0.9934157442226398,feasible
+orientation,0.08,0.99,1.6 lb,1.0,0.9956689816284652,feasible
+orientation,0.08,0.99,4.5 lb,1.0,0.9905811542113496,feasible
+orientation,0.09,0.99,pooled,1.0,0.9957151414344101,feasible
+orientation,0.09,0.99,1.6 lb,1.0,0.9973002373920319,feasible
+orientation,0.09,0.99,4.5 lb,1.0,0.9936428234119631,feasible
+orientation,0.1,0.99,pooled,1.0,0.9971325156620111,feasible
+orientation,0.1,0.99,1.6 lb,1.0,0.9982648342549356,feasible
+orientation,0.1,0.99,4.5 lb,1.0,0.9955975717006216,feasible

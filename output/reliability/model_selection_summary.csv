@@ -1,0 +1,4 @@
+distribution,mean_probability_plot_r2,minimum_probability_plot_r2,mean_aic_rank,selected
+lognormal,0.9929235526372445,0.9870700276142471,1.0,True
+weibull,0.9438732768014173,0.9119472443700958,2.0,False
+normal,0.8037471993984187,0.7816628087125684,3.0,False

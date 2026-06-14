@@ -1,0 +1,2 @@
+Selected common distribution: lognormal
+Selection criterion: highest mean probability-plot R-squared across position/orientation and speed 0.5/1.0 datasets.
