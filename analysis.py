@@ -390,8 +390,9 @@ class UR5DegradationAnalyzer:
 		values: np.ndarray,
 		distribution: str,
 		max_points: int = 2000,
+		log_error_axis: bool = False,
 	) -> tuple[np.ndarray, np.ndarray, float, float, float]:
-		"""Return canonical probability-paper coordinates and regression."""
+		"""Return probability-paper coordinates and their linear regression."""
 
 		observed_full = np.sort(np.asarray(values, dtype=float))
 		observed_full = observed_full[np.isfinite(observed_full)]
@@ -401,7 +402,11 @@ class UR5DegradationAnalyzer:
 
 		if distribution == "normal":
 			probability_scale = stats.norm.ppf(plotting_positions)
-			observed_transformed = observed_full
+			observed_transformed = (
+				np.log(np.maximum(observed_full, np.finfo(float).tiny))
+				if log_error_axis
+				else observed_full
+			)
 		elif distribution == "lognormal":
 			probability_scale = stats.norm.ppf(plotting_positions)
 			observed_transformed = np.log(
@@ -473,8 +478,30 @@ class UR5DegradationAnalyzer:
 				values = pd.to_numeric(group[column], errors="coerce").to_numpy()
 				values = values[np.isfinite(values)]
 				figure, axes = plt.subplots(1, 3, figsize=(14.2, 4.8))
+				combined_figure, combined_axis = plt.subplots(figsize=(7.2, 4.8))
 				x_upper = np.quantile(values, 0.9995)
 				x_grid = np.linspace(0.0, max(x_upper, np.finfo(float).eps), 800)
+				positive_values = np.maximum(values, np.finfo(float).tiny)
+				log_values = np.sort(np.log(positive_values))
+				plotting_positions = (
+					np.arange(1, len(log_values) + 1) - 0.5
+				) / len(log_values)
+				if len(log_values) > 2000:
+					combined_indices = np.linspace(
+						0, len(log_values) - 1, 2000,
+					).round().astype(int)
+				else:
+					combined_indices = np.arange(len(log_values))
+				combined_axis.scatter(
+					log_values[combined_indices],
+					plotting_positions[combined_indices],
+					s=7,
+					alpha=0.3,
+					color="0.35",
+					label="Empirical",
+				)
+				combined_log_grid = np.linspace(log_values.min(), log_values.max(), 800)
+				combined_error_grid = np.exp(combined_log_grid)
 
 				fit_figure, fit_axis = plt.subplots(figsize=(7.0, 4.5))
 				fit_axis.hist(values, bins=100, density=True, alpha=0.32, color="0.55", label="Observed")
@@ -483,14 +510,25 @@ class UR5DegradationAnalyzer:
 					parameters = self._fit_distribution_values(values, distribution)
 					distribution_object = self._distribution_object(distribution, parameters)
 					(
-						observed,
-						probability_coordinates,
+						_,
+						_,
 						probability_r2,
 						probability_slope,
 						probability_intercept,
 					) = self._probability_plot_points(
 						values,
 						distribution,
+					)
+					(
+						observed,
+						probability_coordinates,
+						plot_probability_r2,
+						plot_probability_slope,
+						plot_probability_intercept,
+					) = self._probability_plot_points(
+						values,
+						distribution,
+						log_error_axis=True,
 					)
 					likelihood_values = (
 						values
@@ -516,20 +554,16 @@ class UR5DegradationAnalyzer:
 					line_x = np.array([observed.min(), observed.max()])
 					axis.plot(
 						line_x,
-						probability_intercept + probability_slope * line_x,
+						plot_probability_intercept + plot_probability_slope * line_x,
 						color="tab:red",
 						lw=1.4,
 						# label="Linear fit",
 					)
 					axis.set_title(
-						f"{distribution.title()} | $R^2$={probability_r2:.5f}\n"
-						f"y={probability_intercept:.3g}+{probability_slope:.3g}x"
+						f"{distribution.title()}\n"
+						# f"y={plot_probability_intercept:.3g}+{plot_probability_slope:.3g}x"
 					)
-					axis.set_xlabel(
-						"Observed error"
-						if distribution == "normal"
-						else "log(observed error)"
-					)
+					axis.set_xlabel("log(observed error)")
 					probability_ticks = np.array([
 						0.001, 0.01, 0.10, 0.50, 0.90, 0.99, 0.999,
 					])
@@ -549,6 +583,12 @@ class UR5DegradationAnalyzer:
 					axis.legend(fontsize=7)
 
 					fit_axis.plot(x_grid, distribution_object.pdf(x_grid), lw=1.4, label=distribution.title())
+					combined_axis.plot(
+						combined_log_grid,
+						distribution_object.cdf(combined_error_grid),
+						lw=1.6,
+						label=f"{distribution.title()} fit",
+					)
 
 				figure.suptitle(
 					f"Probability plots: {metric_name} error, speed scale={speed_scale:g}\n"
@@ -558,6 +598,22 @@ class UR5DegradationAnalyzer:
 				figure.tight_layout(rect=[0, 0, 1, 0.9])
 				figure.savefig(prob_dir / f"{metric_name}_speed_{speed_scale:g}_probability_plots.png", dpi=dpi)
 				plt.close(figure)
+
+				combined_axis.set_xlabel("log(error)")
+				combined_axis.set_ylabel("Cumulative probability F(error)")
+				combined_axis.set_ylim(0.0, 1.0)
+				combined_axis.set_title(
+					f"Combined probability plot: {metric_name}, speed scale={speed_scale:g}\n"
+					"Normal-start data; payload levels pooled"
+				)
+				combined_axis.legend(fontsize=8)
+				combined_axis.grid(alpha=0.25)
+				combined_figure.tight_layout()
+				combined_figure.savefig(
+					prob_dir / f"{metric_name}_speed_{speed_scale:g}_combined_probability_plot.png",
+					dpi=dpi,
+				)
+				plt.close(combined_figure)
 
 				fit_axis.set_xlim(0.0, x_upper)
 				fit_axis.set_xlabel(axis_label)
@@ -781,6 +837,7 @@ class UR5DegradationAnalyzer:
 		tolerances: Sequence[float],
 		required_reliabilities: Sequence[float],
 		save_path: Path | str,
+		log_y: bool = False,
 		dpi: int = 150,
 	) -> Path:
 		"""Plot pointwise reliability against interpolated speed scale."""
@@ -789,11 +846,24 @@ class UR5DegradationAnalyzer:
 			raise ValueError(f"Unknown metric: {metric}")
 		speeds = np.linspace(0.5, 1.0, 251)
 		fig, axis = plt.subplots(figsize=(8.0, 5.0))
+		curves = []
 		for tolerance in tolerances:
 			reliability = self.reliability_over_speed(
 				fits, selected_distribution, metric, speeds, float(tolerance)
 			)
-			axis.plot(speeds, reliability, lw=1.6, label=f"Tolerance={tolerance:g}")
+			curves.append((float(tolerance), reliability))
+
+		positive_series = [
+			reliability[reliability > 0.0]
+			for _, reliability in curves
+			if np.any(reliability > 0.0)
+		]
+		positive_values = np.concatenate(positive_series) if positive_series else np.array([])
+		log_floor = max(float(positive_values.min()) * 0.8, 1e-12) if len(positive_values) else 1e-12
+
+		for tolerance, reliability in curves:
+			plot_values = np.maximum(reliability, log_floor) if log_y else reliability
+			axis.plot(speeds, plot_values, lw=1.6, label=f"Tolerance={tolerance:g}")
 
 		for requirement in required_reliabilities:
 			axis.axhline(
@@ -806,10 +876,18 @@ class UR5DegradationAnalyzer:
 			axis.text(1.002, requirement, f"{requirement:.0%}", va="center", fontsize=8)
 
 		axis.set_xlim(0.5, 1.0)
-		axis.set_ylim(0.0, 1.01)
+		if log_y:
+			axis.set_yscale("log")
+			axis.set_ylim(log_floor, 1.01)
+		else:
+			axis.set_ylim(0.0, 1.01)
 		axis.set_xlabel("Speed scale factor")
 		axis.set_ylabel("Reliability: P(error <= tolerance)")
-		axis.set_title(f"{metric.title()}-error reliability curves ({selected_distribution})")
+		scale_label = ", log reliability scale" if log_y else ""
+		axis.set_title(
+			f"{metric.title()}-error reliability curves "
+			f"({selected_distribution}{scale_label})"
+		)
 		axis.legend()
 		axis.grid(alpha=0.3)
 		fig.tight_layout()
@@ -920,6 +998,26 @@ class UR5DegradationAnalyzer:
 			orientation_tolerances_deg,
 			required_reliabilities,
 			out_dir / "orientation_reliability_curves.png",
+			dpi=dpi,
+		)
+		self.plot_reliability_curves(
+			fits,
+			selected_distribution,
+			"position",
+			position_tolerances_mm,
+			required_reliabilities,
+			out_dir / "position_reliability_curves_log_scale.png",
+			log_y=True,
+			dpi=dpi,
+		)
+		self.plot_reliability_curves(
+			fits,
+			selected_distribution,
+			"orientation",
+			orientation_tolerances_deg,
+			required_reliabilities,
+			out_dir / "orientation_reliability_curves_log_scale.png",
+			log_y=True,
 			dpi=dpi,
 		)
 
