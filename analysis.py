@@ -886,7 +886,7 @@ class UR5DegradationAnalyzer:
 		scale_label = ", log reliability scale" if log_y else ""
 		axis.set_title(
 			f"{metric.title()}-error reliability curves "
-			f"({selected_distribution}{scale_label})"
+			# f"({selected_distribution}{scale_label})"
 		)
 		axis.legend()
 		axis.grid(alpha=0.3)
